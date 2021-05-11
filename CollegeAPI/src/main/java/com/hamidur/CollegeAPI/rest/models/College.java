@@ -1,13 +1,30 @@
 package com.hamidur.CollegeAPI.rest.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Entity
+@Table(name = "colleges", schema = "central")
 public class College
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "college_id")
     private Integer collegeId;
+    
+    @Column(name = "short_name", unique = true, nullable = false, length = 5)
     private String nameIdentifier;
+    
+    @Column(name = "full_name", unique = true, nullable = false, length = 50)
     private String name;
+    
+    @Column(name = "join_date", nullable = false)
     private LocalDate joinDate;
     
     public College()
