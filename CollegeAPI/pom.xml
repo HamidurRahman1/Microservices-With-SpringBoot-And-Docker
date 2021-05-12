@@ -11,10 +11,10 @@
 	</parent>
 
 	<groupId>com.hamidur</groupId>
-	<artifactId>CollegeAPI</artifactId>
+	<artifactId>centralcollegeapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CollegeAPI</name>
-	<description>A demo microservices with boot</description>
+	<name>CentralCollegeAPI</name>
+	<description>A demo microservices with spring boot</description>
 
 	<properties>
 		<java.version>8</java.version>

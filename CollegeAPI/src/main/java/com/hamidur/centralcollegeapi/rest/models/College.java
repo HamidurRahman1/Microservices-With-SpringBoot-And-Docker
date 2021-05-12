@@ -1,4 +1,4 @@
-package com.hamidur.CollegeAPI.rest.models;
+package com.hamidur.centralcollegeapi.rest.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +11,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "colleges", schema = "central")
-public class College
-{
+public class College {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "college_id")
@@ -27,62 +26,50 @@ public class College
     @Column(name = "join_date", nullable = false)
     private LocalDate joinDate;
     
-    public College()
-    {
-    
+    public College() {
     }
     
-    public College(Integer collegeId, String nameIdentifier, String name, LocalDate joinDate)
-    {
+    public College(Integer collegeId, String nameIdentifier, String name, LocalDate joinDate) {
         this.collegeId = collegeId;
         this.nameIdentifier = nameIdentifier;
         this.name = name;
         this.joinDate = joinDate;
     }
     
-    public Integer getCollegeId()
-    {
+    public Integer getCollegeId() {
         return collegeId;
     }
     
-    public void setCollegeId(Integer collegeId)
-    {
+    public void setCollegeId(Integer collegeId) {
         this.collegeId = collegeId;
     }
     
-    public String getNameIdentifier()
-    {
+    public String getNameIdentifier() {
         return nameIdentifier;
     }
     
-    public void setNameIdentifier(String nameIdentifier)
-    {
+    public void setNameIdentifier(String nameIdentifier) {
         this.nameIdentifier = nameIdentifier;
     }
     
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
     
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
     
-    public LocalDate getJoinDate()
-    {
+    public LocalDate getJoinDate() {
         return joinDate;
     }
     
-    public void setJoinDate(LocalDate joinDate)
-    {
+    public void setJoinDate(LocalDate joinDate) {
         this.joinDate = joinDate;
     }
     
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
         College college = (College) o;
@@ -93,14 +80,12 @@ public class College
     }
     
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         return Objects.hash(collegeId, nameIdentifier, name, joinDate);
     }
     
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "College{" + "collegeId=" + collegeId + ", nameIdentifier='" + nameIdentifier + '\'' + ", name='" + name + '\'' + ", joinDate=" + joinDate + '}';
     }
 }

@@ -1,4 +1,4 @@
-package com.hamidur.CollegeAPI.rest.models;
+package com.hamidur.centralcollegeapi.rest.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +10,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "catalogs", schema = "central")
-public class Catalog
-{
+public class Catalog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "catalog_id")
@@ -23,51 +22,41 @@ public class Catalog
     @Column(name = "description", length = 500, nullable = false)
     private String description;
     
-    public Catalog()
-    {
-    
+    public Catalog() {
     }
     
-    public Catalog(Integer courseId, String catalogName, String description)
-    {
+    public Catalog(Integer courseId, String catalogName, String description) {
         this.catalogId = courseId;
         this.catalogName = catalogName;
         this.description = description;
     }
     
-    public Integer getCatalogId()
-    {
+    public Integer getCatalogId() {
         return catalogId;
     }
     
-    public void setCatalogId(Integer catalogId)
-    {
+    public void setCatalogId(Integer catalogId) {
         this.catalogId = catalogId;
     }
     
-    public String getCatalogName()
-    {
+    public String getCatalogName() {
         return catalogName;
     }
     
-    public void setCatalogName(String catalogName)
-    {
+    public void setCatalogName(String catalogName) {
         this.catalogName = catalogName;
     }
     
-    public String getDescription()
-    {
+    public String getDescription() {
         return description;
     }
     
-    public void setDescription(String description)
-    {
+    public void setDescription(String description) {
         this.description = description;
     }
     
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
         Catalog course = (Catalog) o;
@@ -77,14 +66,12 @@ public class Catalog
     }
     
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         return Objects.hash(catalogId, catalogName, description);
     }
     
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Course{" + "courseId=" + catalogId + ", catalogName='" + catalogName + '\'' + ", description='" + description + '\'' + '}';
     }
 }
