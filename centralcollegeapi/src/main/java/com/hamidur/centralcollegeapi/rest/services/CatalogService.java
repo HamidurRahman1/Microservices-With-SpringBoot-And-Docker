@@ -27,7 +27,7 @@ public class CatalogService {
         return catalogRepository.findById(collegeId).orElse(null);
     }
     
-    public Catalog getCollegeByShortName(String catalogName) {
+    public Catalog getCatalogByCatalogName(String catalogName) {
         return catalogRepository.findByCatalogNameIgnoreCase(catalogName).orElse(null);
     }
 }
