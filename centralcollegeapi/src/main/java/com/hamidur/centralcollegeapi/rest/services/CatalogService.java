@@ -22,4 +22,12 @@ public class CatalogService {
         catalogRepository.findAll().forEach(catalogs::add);
         return catalogs;
     }
+    
+    public Catalog getCatalogById(Integer collegeId) {
+        return catalogRepository.findById(collegeId).orElse(null);
+    }
+    
+    public Catalog getCollegeByShortName(String catalogName) {
+        return catalogRepository.findByCatalogNameIgnoreCase(catalogName).orElse(null);
+    }
 }
