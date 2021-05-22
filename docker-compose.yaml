@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  mysql:
+    build: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root-password
+#      - MYSQL_DATABASE=central
+#      - MYSQL_USER=root
+    ports:
+      - '3306:3306'
+
+  centralcollegeapi:
+    build: centralcollegeapi
+    ports:
+      - '8080:8080'
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/central?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+    depends_on:
+      - mysql

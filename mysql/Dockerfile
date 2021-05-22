@@ -1,4 +1,4 @@
-FROM mysql:latest
+FROM mysql:8.0.16
 
 RUN apt-get -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false update && apt-get install -y curl unzip
 
