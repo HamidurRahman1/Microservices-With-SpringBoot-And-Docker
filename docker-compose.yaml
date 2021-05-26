@@ -1,21 +1,33 @@
-version: '3'
+version: '3.9'
 
 services:
 
   mysql:
+    hostname: mysql
     build: mysql
+    container_name: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root-password
-#      - MYSQL_DATABASE=central
-#      - MYSQL_USER=root
+      - MYSQL_DATABASE=central
+      - MYSQL_USER=root
     ports:
       - '3306:3306'
+    networks:
+      - springbootmicro
 
-  centralcollegeapi:
+  centralapi:
+    hostname: centralapi
     build: centralcollegeapi
+    container_name: centralapi
     ports:
       - '8080:8080'
-#    environment:
-#      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/central?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/central?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
     depends_on:
       - mysql
+    networks:
+      - springbootmicro
+
+networks:
+  springbootmicro:
+    name: springbootmicro
